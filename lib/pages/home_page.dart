@@ -1,3 +1,4 @@
+import 'package:codigo_componets/pages/alert_page.dart';
 import 'package:codigo_componets/pages/avatar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -81,25 +82,21 @@ class HomePage extends StatelessWidget {
                   height: 18,
                 ),
                 ItemsMenuWidget(
-                  title: "Abatar",
+                  title: "Avatar",
                   description: " Detales de los Abatars",
                   icon: Icons.person,
                   ontap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => AvatarPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => AvatarPage()));
                   },
                 ),
                 ItemsMenuWidget(
-                  title: "Madarina",
+                  title: "Alerta",
                   description: "Detalle de las Mandarinas",
-                  icon: Icons.account_balance,
+                  icon: Icons.add_alert,
                   ontap: () {
-                    int total = 1 + 2;
-                    print(
-                      total,
-                    );
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => AlertPage()));
                   },
                 ),
                 ItemsMenuWidget(
