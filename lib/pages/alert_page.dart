@@ -78,6 +78,9 @@ class AlertPage extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
+              const SizedBox(
+                height: 12.0,
+              ),
               Text(
                 "Sonia Justiniano",
                 style: GoogleFonts.poppins(
@@ -92,6 +95,9 @@ class AlertPage extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                   fontSize: 11.0,
                 ),
+              ),
+              const SizedBox(
+                height: 12.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -115,6 +121,72 @@ class AlertPage extends StatelessWidget {
                   Icon(
                     Icons.star,
                     color: Color(0xffE8EAED),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 12.0,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                width: double.infinity,
+                height: 54,
+                decoration: BoxDecoration(
+                  color: const Color(0x0ff7f9fc),
+                  border: Border.all(
+                    color: const Color(0xff51688f).withOpacity(0.2),
+                  ),
+                ),
+                child: Text(
+                  "Adicional Comments....",
+                  style: GoogleFonts.poppins(
+                    color: const Color(0xff51688f),
+                    fontWeight: FontWeight.w500,
+                    fontSize: 9.0,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 12.0,
+              ),
+              Row(
+                children: [
+                  // ElevatedButton(
+                  //   style: ElevatedButton.styleFrom(
+                  //     backgroundColor: Colors.transparent,
+                  //     elevation: 10,
+                  //   ),
+                  //   onPressed: () {},
+                  //   child: const Text(
+                  //     "Not Now",
+                  //   ),
+                  // ),
+                  Expanded(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        side: BorderSide(
+                          color: const Color(0xff51688f).withOpacity(0.12),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: const Text(
+                        "Not Now",
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 12.0,
+                  ),
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xff789BD6),
+                      ),
+                      onPressed: () {},
+                      child: const Text(
+                        "Submit Review",
+                      ),
+                    ),
                   ),
                 ],
               )
