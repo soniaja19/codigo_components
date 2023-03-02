@@ -1,3 +1,4 @@
+import 'package:codigo_componets/pages/avatar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -81,18 +82,41 @@ class HomePage extends StatelessWidget {
                 ),
                 ItemsMenuWidget(
                   title: "Abatar",
-                  subtitle: " Detales de los Abatars",
-                  icon1: const Icon(Icons.person),
+                  description: " Detales de los Abatars",
+                  icon: Icons.person,
+                  ontap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => AbatarPage()));
+                  },
                 ),
                 ItemsMenuWidget(
                   title: "Madarina",
-                  subtitle: "Detalle de las Mandarinas",
-                  icon1: const Icon(Icons.account_balance),
+                  description: "Detalle de las Mandarinas",
+                  icon: Icons.account_balance,
+                  ontap: () {
+                    int total = 1 + 2;
+                    print(
+                      total,
+                    );
+                  },
                 ),
                 ItemsMenuWidget(
                   title: "Phone",
-                  subtitle: "Detalle de los Phone",
-                  icon1: const Icon(Icons.phone_android_sharp),
+                  description: "Detalle de los Phone",
+                  icon: Icons.phone_android_sharp,
+                  ontap: () {},
+                ),
+                ItemsMenuWidget(
+                  title: "Otrose",
+                  description: "Detalle de otros",
+                  icon: Icons.add_to_drive_rounded,
+                  ontap: () {
+                    print(
+                      "Hola",
+                    );
+                  },
                 ),
               ],
             ),
@@ -105,49 +129,60 @@ class HomePage extends StatelessWidget {
 
 class ItemsMenuWidget extends StatelessWidget {
   String title;
-  String subtitle;
-  Icon icon1;
+  String description;
+  IconData icon;
+  // Function matasquita;
+  VoidCallback ontap;
+
   ItemsMenuWidget({
     required this.title,
-    required this.subtitle,
-    required this.icon1,
+    required this.description,
+    required this.icon,
+    required this.ontap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 9.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(14.8),
-        boxShadow: [
-          /// Este es sombra.
-          BoxShadow(
-            color: Colors.black.withOpacity(0.08),
-            blurRadius: 12,
-            offset: const Offset(4, 4),
-          ),
-        ],
-      ),
-      child: ListTile(
-        title: Text(
-          title,
-          style: GoogleFonts.sofia(
-            fontSize: 14,
-            color: Colors.black.withOpacity(0.75),
-            fontWeight: FontWeight.w600,
-          ),
+    return GestureDetector(
+      // onTap: () {
+      //   matasquita();
+      // },
+
+      onTap: ontap,
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 9.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(14.8),
+          boxShadow: [
+            /// Este es sombra.
+            BoxShadow(
+              color: Colors.black.withOpacity(0.08),
+              blurRadius: 12,
+              offset: const Offset(4, 4),
+            ),
+          ],
         ),
-        subtitle: Text(
-          subtitle,
-          style: GoogleFonts.manrope(
-            fontSize: 10,
-            color: Colors.black.withOpacity(0.75),
-            fontWeight: FontWeight.w600,
+        child: ListTile(
+          title: Text(
+            title,
+            style: GoogleFonts.sofia(
+              fontSize: 14,
+              color: Colors.black.withOpacity(0.75),
+              fontWeight: FontWeight.w600,
+            ),
           ),
+          subtitle: Text(
+            description,
+            style: GoogleFonts.manrope(
+              fontSize: 10,
+              color: Colors.black.withOpacity(0.75),
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          leading: Icon(icon),
+          trailing: const Icon(Icons.chevron_right),
         ),
-        leading: icon1,
-        trailing: const Icon(Icons.chevron_right),
       ),
     );
   }
