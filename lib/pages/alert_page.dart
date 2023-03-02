@@ -38,53 +38,89 @@ class AlertPage extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-            contentPadding: const EdgeInsets.symmetric(
-              vertical: 14,
-              horizontal: 16,
-            ),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  "Caregiver Review",
-                  style: GoogleFonts.poppins(
-                    color: const Color(0xff789BDB),
-                    fontWeight: FontWeight.w600,
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 14,
+            horizontal: 16,
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Caregiver Review",
+                style: GoogleFonts.poppins(
+                  color: const Color(0xff789BDB),
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const Divider(
+                thickness: 1.2,
+              ),
+              // const CircleAvatar( //tambien se puede usae aquello
+              //   radius: 26,
+              //   child: Icon(
+              //     Icons.person,
+              //     color: Color(0xff789BDB),
+              //     size: 30.0,
+              //   ),
+              // ),
+              Container(
+                padding: const EdgeInsets.all(12),
+                // height: 100,
+                // width: 100,
+                decoration: const BoxDecoration(
+                  color: Color(0xff789BDB),
+                  //   borderRadius: BorderRadius.circular(100),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.person,
+                  size: 30,
+                  color: Colors.white,
+                ),
+              ),
+              Text(
+                "Sonia Justiniano",
+                style: GoogleFonts.poppins(
+                  color: const Color(0xff51688f),
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              Text(
+                "Read the care provided Sunday, Jan 9",
+                style: GoogleFonts.poppins(
+                  color: const Color(0xff51688f),
+                  fontWeight: FontWeight.w500,
+                  fontSize: 11.0,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Icon(
+                    Icons.star,
+                    color: Color(0xffFFC267),
                   ),
-                ),
-                const Divider(
-                  thickness: 1.2,
-                ),
-                const CircleAvatar(
-                  radius: 26,
-                  child: Icon(
-                    Icons.person,
-                    color: Color(0xff789BDB),
-                    size: 30.0,
+                  Icon(
+                    Icons.star,
+                    color: Color(0xffFFC267),
                   ),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(12),
-                  // height: 100,
-                  // width: 100,
-                  decoration: const BoxDecoration(
-                    color: Colors.red,
-                    //   borderRadius: BorderRadius.circular(100),
-                    shape: BoxShape.circle,
+                  Icon(
+                    Icons.star,
+                    color: Color(0xffFFC267),
                   ),
-                  child: const Icon(
-                    Icons.person,
-                    size: 30,
+                  Icon(
+                    Icons.star,
+                    color: Color(0xffFFC267),
                   ),
-                ),
-                const Text(
-                  "Sonia Justiniano",
-                ),
-                const Text(
-                  "Sonia Justiniano",
-                ),
-              ],
-            ));
+                  Icon(
+                    Icons.star,
+                    color: Color(0xffE8EAED),
+                  ),
+                ],
+              )
+            ],
+          ),
+        );
       },
     );
   }
