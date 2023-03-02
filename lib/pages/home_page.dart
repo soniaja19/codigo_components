@@ -88,7 +88,7 @@ class HomePage extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (BuildContext context) => AbatarPage()));
+                            builder: (BuildContext context) => AvatarPage()));
                   },
                 ),
                 ItemsMenuWidget(
