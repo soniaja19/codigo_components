@@ -1,5 +1,6 @@
 import 'package:codigo_componets/pages/alert_page.dart';
 import 'package:codigo_componets/pages/avatar_page.dart';
+import 'package:codigo_componets/pages/card_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -100,10 +101,13 @@ class HomePage extends StatelessWidget {
                   },
                 ),
                 ItemsMenuWidget(
-                  title: "Phone",
-                  description: "Detalle de los Phone",
-                  icon: Icons.phone_android_sharp,
-                  ontap: () {},
+                  title: "Cards",
+                  description: "Detalle de los Cards",
+                  icon: Icons.card_giftcard,
+                  ontap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CardPage()));
+                  },
                 ),
                 ItemsMenuWidget(
                   title: "Otrose",
