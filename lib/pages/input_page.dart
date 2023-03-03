@@ -79,6 +79,55 @@ class InputPage extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(
+              height: 25,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.06),
+                    blurRadius: 12,
+                    offset: const Offset(5, 5),
+                  )
+                ],
+              ),
+              child: TextField(
+                style: GoogleFonts.manrope(
+                  fontSize: 14,
+                ),
+                decoration: InputDecoration(
+                  hintText: "Ingresa a tu teléfono",
+                  hintStyle: TextStyle(
+                    color: Colors.black.withOpacity(0.8),
+                  ),
+                  fillColor: Colors.white.withOpacity(0.4),
+                  filled: true,
+                  prefixIcon: Icon(
+                    Icons.phone_android,
+                    color: Colors.black.withOpacity(0.4),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(
+                    vertical: 13,
+                    horizontal: 12,
+                  ),
+                  focusedBorder:
+                      OutlineInputBorder /*el borde aparece en todo el borde*/ (
+                    //UnderlineInputBorder
+                    borderRadius: BorderRadius.circular(30),
+                    // borderSide: const BorderSide(
+                    //   color: Colors.pink,
+                    //   width: 5.0,
+                    // ),
+                    borderSide: BorderSide.none,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
