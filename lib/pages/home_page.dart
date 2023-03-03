@@ -87,10 +87,8 @@ class HomePage extends StatelessWidget {
                   description: " Detales de los Abatars",
                   icon: Icons.person,
                   ontap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const InputPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => InputPage()));
                   },
                 ),
                 ItemsMenuWidget(
@@ -116,10 +114,17 @@ class HomePage extends StatelessWidget {
                   description: "Detalle de los Inputs",
                   icon: Icons.input,
                   ontap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const InputPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => InputPage()));
+                  },
+                ),
+                ItemsMenuWidget(
+                  title: "List View",
+                  description: "Detalle de los Views",
+                  icon: Icons.input,
+                  ontap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ListView()));
                   },
                 ),
               ],
