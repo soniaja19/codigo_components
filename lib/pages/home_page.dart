@@ -1,6 +1,6 @@
 import 'package:codigo_componets/pages/alert_page.dart';
-import 'package:codigo_componets/pages/avatar_page.dart';
 import 'package:codigo_componets/pages/card_page.dart';
+import 'package:codigo_componets/pages/input_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -87,8 +87,10 @@ class HomePage extends StatelessWidget {
                   description: " Detales de los Abatars",
                   icon: Icons.person,
                   ontap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => AvatarPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const InputPage()));
                   },
                 ),
                 ItemsMenuWidget(
@@ -110,13 +112,14 @@ class HomePage extends StatelessWidget {
                   },
                 ),
                 ItemsMenuWidget(
-                  title: "Otrose",
-                  description: "Detalle de otros",
-                  icon: Icons.add_to_drive_rounded,
+                  title: "Imput",
+                  description: "Detalle de los Inputs",
+                  icon: Icons.input,
                   ontap: () {
-                    print(
-                      "Hola",
-                    );
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const InputPage()));
                   },
                 ),
               ],
