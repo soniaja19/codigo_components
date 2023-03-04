@@ -10,7 +10,7 @@ class ListViewPage extends StatelessWidget {
       "first_appearance": "Detective Comics #27",
       "characters": "Bruce Wayne",
       "image":
-          "https://www.dc.com/sites/default/files/Char_Gallery_Batman_DTC1018_6053f2162bdf03.97426416.jpg"
+          "https://i0.wp.com/batman-news.com/wp-content/uploads/2022/11/The-Adventures-of-Batman-Blu-ray-Featured-01.jpg?fit=1600%2C900&quality=80&strip=info&ssl=1"
     },
     {
       "superhero": "Superman",
@@ -19,7 +19,7 @@ class ListViewPage extends StatelessWidget {
       "first_appearance": "Action Comics #1",
       "characters": "Kal-El",
       "image":
-          "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2021/06/superman-2354819.jpg?itok=fLKSmYUP"
+          "https://images.pexels.com/photos/11201445/pexels-photo-11201445.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       "superhero": "Flash",
@@ -38,7 +38,7 @@ class ListViewPage extends StatelessWidget {
       "characters":
           "Alan Scott, Hal Jordan, Guy Gardner, John Stewart, Kyle Raynor, Jade, Sinestro, Simon Baz",
       "image":
-          "https://www.dc.com/sites/default/files/Char_Gallery_Batman_DTC1018_6053f2162bdf03.97426416.jpg"
+          "https://cdn.shopify.com/s/files/1/0521/2418/8872/products/hr_twth908706.jpg?v=1636056034"
     },
     {
       "superhero": "Green Arrow",
@@ -274,14 +274,23 @@ class ListViewPage extends StatelessWidget {
       //   },
       // ),
       body: ListView.builder(
-        itemCount: 10,
+        itemCount: superheroes.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 14),
+            margin: const EdgeInsets.symmetric(
+              vertical: 12,
+              horizontal: 14,
+            ),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.yellow,
+              color: Colors.white,
               borderRadius: BorderRadius.circular(25),
+              boxShadow: [
+                BoxShadow(
+                    blurRadius: 12,
+                    color: Colors.black.withOpacity(0.08),
+                    offset: const Offset(4, 4)),
+              ],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -289,7 +298,7 @@ class ListViewPage extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(14),
                   child: Image.network(
-                    "https://i0.wp.com/batman-news.com/wp-content/uploads/2022/11/The-Adventures-of-Batman-Blu-ray-Featured-01.jpg?fit=1600%2C900&quality=80&strip=info&ssl=1",
+                    superheroes[index]["image"],
                     height: 300,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -299,7 +308,7 @@ class ListViewPage extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  "Batman",
+                  superheroes[index]["superhero"],
                   style: GoogleFonts.manrope(
                     fontSize: 26,
                     fontWeight: FontWeight.w500,
@@ -307,7 +316,7 @@ class ListViewPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "Bruce Wayne",
+                  superheroes[index]["alter_ego"],
                   style: GoogleFonts.manrope(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
@@ -315,7 +324,7 @@ class ListViewPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "DC Comics",
+                  superheroes[index]["publisher"],
                   style: GoogleFonts.manrope(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
