@@ -1,6 +1,7 @@
 import 'package:codigo_componets/pages/alert_page.dart';
 import 'package:codigo_componets/pages/card_page.dart';
 import 'package:codigo_componets/pages/input_page.dart';
+import 'package:codigo_componets/pages/listView_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -123,8 +124,10 @@ class HomePage extends StatelessWidget {
                   description: "Detalle de los Views",
                   icon: Icons.input,
                   ontap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ListView()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ListViewPage()));
                   },
                 ),
               ],
