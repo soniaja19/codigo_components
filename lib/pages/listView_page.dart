@@ -276,78 +276,106 @@ class ListViewPage extends StatelessWidget {
       body: ListView.builder(
         itemCount: superheroes.length,
         itemBuilder: (BuildContext context, int index) {
-          return Container(
-            margin: const EdgeInsets.symmetric(
-              vertical: 12,
-              horizontal: 14,
-            ),
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
-              boxShadow: [
-                BoxShadow(
-                    blurRadius: 12,
-                    color: Colors.black.withOpacity(0.08),
-                    offset: const Offset(4, 4)),
-              ],
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(14),
-                  child: Image.network(
-                    superheroes[index]["image"],
-                    height: 300,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                Text(
-                  superheroes[index]["superhero"],
-                  style: GoogleFonts.manrope(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black.withOpacity(0.80),
-                  ),
-                ),
-                Text(
-                  superheroes[index]["alter_ego"],
-                  style: GoogleFonts.manrope(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black.withOpacity(0.80),
-                  ),
-                ),
-                Text(
-                  superheroes[index]["publisher"],
-                  style: GoogleFonts.manrope(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black.withOpacity(0.80),
-                  ),
-                ),
-                Text(
-                  "Batman es un personaje de cómic creado por los estadounidenses Bob Kane y Bill Finger, ​ y propiedad de DC Comics. Apareció por primera vez en la historia titulada «El caso del sindicato químico» de la revista Detective Comics N.º 27, lanzada por la editorial National Publications el 30 de marzo",
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.manrope(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black.withOpacity(0.80),
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-              ],
-            ),
+          return MyItemsListWidget(
+            // image: superheroes[index]["image"],
+            // name: superheroes[index]["superheroe"],
+            // alias: superheroes[index]["alter:ego"],
+            // publisher: superheroes[index]["publisher"],
+            data: superheroes[index],
           );
         },
+      ),
+    );
+  }
+}
+
+class MyItemsListWidget extends StatelessWidget {
+  // String image;
+  // String name;
+  // String alias;
+  // String publisher;
+
+  Map<String, dynamic> data;
+
+  MyItemsListWidget(
+      {
+      // required this.image,
+      // required this.name,
+      // required this.alias,
+      // required this.publisher,
+      required this.data});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(
+        vertical: 12,
+        horizontal: 14,
+      ),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(25),
+        boxShadow: [
+          BoxShadow(
+              blurRadius: 12,
+              color: Colors.black.withOpacity(0.08),
+              offset: const Offset(4, 4)),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(14),
+            child: Image.network(
+              data["image"],
+              height: 300,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Text(
+            data["superhero"],
+            style: GoogleFonts.manrope(
+              fontSize: 26,
+              fontWeight: FontWeight.w500,
+              color: Colors.black.withOpacity(0.80),
+            ),
+          ),
+          Text(
+            data["alter_ego"],
+            style: GoogleFonts.manrope(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: Colors.black.withOpacity(0.80),
+            ),
+          ),
+          Text(
+            data["publisher"],
+            style: GoogleFonts.manrope(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: Colors.black.withOpacity(0.80),
+            ),
+          ),
+          Text(
+            "Batman es un personaje de cómic creado por los estadounidenses Bob Kane y Bill Finger, ​ y propiedad de DC Comics. Apareció por primera vez en la historia titulada «El caso del sindicato químico» de la revista Detective Comics N.º 27, lanzada por la editorial National Publications el 30 de marzo",
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+            style: GoogleFonts.manrope(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: Colors.black.withOpacity(0.80),
+            ),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+        ],
       ),
     );
   }
