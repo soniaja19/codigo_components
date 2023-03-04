@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ListViewPage extends StatelessWidget {
   List<Map<String, dynamic>> superheroes = [
@@ -294,16 +295,46 @@ class ListViewPage extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                const Text(
+                const SizedBox(
+                  height: 8,
+                ),
+                Text(
                   "Batman",
+                  style: GoogleFonts.manrope(
+                    fontSize: 26,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black.withOpacity(0.80),
+                  ),
                 ),
-                const Text(
+                Text(
                   "Bruce Wayne",
+                  style: GoogleFonts.manrope(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black.withOpacity(0.80),
+                  ),
                 ),
-                const Text("DC Comics"),
-                const Text(
+                Text(
+                  "DC Comics",
+                  style: GoogleFonts.manrope(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black.withOpacity(0.80),
+                  ),
+                ),
+                Text(
                   "Batman es un personaje de cómic creado por los estadounidenses Bob Kane y Bill Finger, ​ y propiedad de DC Comics. Apareció por primera vez en la historia titulada «El caso del sindicato químico» de la revista Detective Comics N.º 27, lanzada por la editorial National Publications el 30 de marzo",
-                )
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.manrope(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black.withOpacity(0.80),
+                  ),
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
               ],
             ),
           );
