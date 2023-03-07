@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ListViewPage extends StatelessWidget {
+class GridPage extends StatelessWidget {
   List<Map<String, dynamic>> superheroes = [
     {
       "superhero": "Batman",
@@ -175,205 +175,116 @@ class ListViewPage extends StatelessWidget {
       "image":
           "https://www.dc.com/sites/default/files/Char_Gallery_Batman_DTC1018_6053f2162bdf03.97426416.jpg"
     },
-    {
-      "superhero": "Silver Surfer",
-      "publisher": "Marvel Comics",
-      "alter_ego": "Norrin Radd",
-      "first_appearance": "The Fantastic Four #48",
-      "characters": "Norrin Radd",
-      "image":
-          "https://i0.wp.com/batman-news.com/wp-content/uploads/2022/11/The-Adventures-of-Batman-Blu-ray-Featured-01.jpg?fit=1600%2C900&quality=80&strip=info&ssl=1"
-    }
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("List Page"),
+        title: const Text(
+          "Grid Page",
+        ),
       ),
-      // body: /*Ayuda a que aparezcan todos los container */ListView(
-      //   children: [
-      //     Container(
-      //       color: Colors.pink,
-      //       height: 200,
-      //       width: 200,
-      //     ),
-      //   ],
+      // body: GridView(
       // ),
-      //
+      body: GridView.count(
+        crossAxisCount: 2 /*Esta es como la columna*/,
+        crossAxisSpacing: 15,
+        mainAxisSpacing: 15,
+        childAspectRatio: 0.8,
+        //
+        children: [
+          ...List.generate(
+            superheroes.length,
+            (index) => ItemSuperHeroe(
+              dataSuperheroe: superheroes[index],
+            ),
+          ),
+          const Text("Hola"),
+        ],
 
-      //Creando una lista con e ListView.Builder
-      //
-      // body: ListView.builder(
-      //   itemCount: 20,
-      //   itemBuilder: (BuildContext context, int index) {
-      //     return Container(
-      //       margin:
-      //           const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
-      //       decoration: BoxDecoration(
-      //         color: Colors.white,
-      //         borderRadius: const BorderRadius.only(
-      //           bottomLeft: Radius.circular(14.0),
-      //           topLeft: Radius.circular(14.0),
-      //         ),
-      //         boxShadow: [
-      //           BoxShadow(
-      //             color: Colors.black.withOpacity(0.50),
-      //             offset: const Offset(10, 10),
-      //             blurStyle: BlurStyle.solid,
-      //             blurRadius: 12.0,
-      //           ),
-      //         ],
-      //       ),
-      //       child: Row(
-      //         children: [
-      //           ClipRRect(
-      //             borderRadius: BorderRadius.circular(14.0),
-      //             child: Image.network(
-      //               "https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      //               height: 120,
-      //               width: 100,
-      //               fit: BoxFit.cover,
-      //             ),
-      //           ),
-      //           const SizedBox(
-      //             width: 12,
-      //           ),
-      //           Expanded(
-      //             child: Column(
-      //               crossAxisAlignment: CrossAxisAlignment.start,
-      //               children: [
-      //                 Text(
-      //                   "Informes de actividades",
-      //                   style: GoogleFonts.manrope(
-      //                     fontWeight: FontWeight.bold,
-      //                     fontSize: 16.0,
-      //                   ),
-      //                 ),
-      //                 Text(
-      //                   "4/06/2023   12:00 pm",
-      //                   style: GoogleFonts.manrope(
-      //                     fontWeight: FontWeight.w300,
-      //                     fontSize: 15.0,
-      //                   ),
-      //                 ),
-      //                 Text(
-      //                   "Se tuvo que suspender las clases porque la huelga continua y las personas no respetan a las autoridades",
-      //                   style: GoogleFonts.manrope(
-      //                     fontWeight: FontWeight.w500,
-      //                     fontSize: 14.0,
-      //                   ),
-      //                 ),
-      //               ],
-      //             ),
-      //           )
-      //         ],
-      //       ),
-      //     );
+        //Opción 2 lista de widgets con su colección
+        // children:
+        //     List.generate(superheroes.length, (index) => ItemSuperHeroe()),
+
+        //Opción 2 lista de widgets con su colección
+        //children: superheroes.map((mandarina) => ItemSuperHeroe()).toList(),
+
+        //Opción 3
+        // children: [
+        //   ...superheroes.map((mandarina) => ItemSuperHeroe()).toList(),
+        // ],
+      ),
+      // body: GridView.builder(
+      //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      //     crossAxisCount: 2,
+      //     crossAxisSpacing: 10,
+      //     mainAxisSpacing: 10,
+      //   ),
+      //   itemCount: superheroes.length,
+      //   itemBuilder: (BuildContext contex, int index) {
+      //     return ItemSuperHeroe();
       //   },
       // ),
-      body: ListView.builder(
-        itemCount: superheroes.length,
-        itemBuilder: (BuildContext context, int index) {
-          return MyItemsListWidget(
-            // image: superheroes[index]["image"],
-            // name: superheroes[index]["superheroe"],
-            // alias: superheroes[index]["alter:ego"],
-            // publisher: superheroes[index]["publisher"],
-            data: superheroes[index],
-          );
-        },
-      ),
     );
   }
 }
 
-class MyItemsListWidget extends StatelessWidget {
-  // String image;
-  // String name;
-  // String alias;
-  // String publisher;
+class ItemSuperHeroe extends StatelessWidget {
+  Map<String, dynamic> dataSuperheroe;
 
-  Map<String, dynamic> data;
-
-  MyItemsListWidget(
-      {
-      // required this.image,
-      // required this.name,
-      // required this.alias,
-      // required this.publisher,
-      required this.data});
+  ItemSuperHeroe({required this.dataSuperheroe});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(
-        vertical: 12,
-        horizontal: 14,
-      ),
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(25),
-        boxShadow: [
-          BoxShadow(
-              blurRadius: 12,
-              color: Colors.black.withOpacity(0.08),
-              offset: const Offset(4, 4)),
-        ],
+        color: Colors.yellow,
+        borderRadius: BorderRadius.circular(5),
+        border: Border.all(),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(14),
-            child: Image.network(
-              data["image"],
-              height: 300,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          Text(
-            data["superhero"],
-            style: GoogleFonts.manrope(
-              fontSize: 26,
-              fontWeight: FontWeight.w500,
-              color: Colors.black.withOpacity(0.80),
+          Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.network(
+                dataSuperheroe["image"],
+                width: double.infinity,
+              ),
             ),
           ),
           Text(
-            data["alter_ego"],
+            dataSuperheroe["superhero"],
             style: GoogleFonts.manrope(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              color: Colors.black.withOpacity(0.80),
+              fontWeight: FontWeight.w800,
+              fontSize: 12,
             ),
           ),
           Text(
-            data["publisher"],
+            dataSuperheroe["alter_ego"],
             style: GoogleFonts.manrope(
-              fontSize: 14,
               fontWeight: FontWeight.w500,
-              color: Colors.black.withOpacity(0.80),
+              fontSize: 12,
+            ),
+          ),
+          Text(
+            dataSuperheroe["publisher"],
+            style: GoogleFonts.manrope(
+              fontWeight: FontWeight.w500,
+              fontSize: 12,
             ),
           ),
           Text(
             "Batman es un personaje de cómic creado por los estadounidenses Bob Kane y Bill Finger, ​ y propiedad de DC Comics. Apareció por primera vez en la historia titulada «El caso del sindicato químico» de la revista Detective Comics N.º 27, lanzada por la editorial National Publications el 30 de marzo",
-            maxLines: 3,
+            maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: GoogleFonts.manrope(
-              fontSize: 14,
               fontWeight: FontWeight.w500,
-              color: Colors.black.withOpacity(0.80),
+              fontSize: 12,
             ),
-          ),
-          const SizedBox(
-            height: 8,
           ),
         ],
       ),

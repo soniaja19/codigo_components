@@ -1,5 +1,6 @@
 import 'package:codigo_componets/pages/alert_page.dart';
 import 'package:codigo_componets/pages/card_page.dart';
+import 'package:codigo_componets/pages/grid_page.dart';
 import 'package:codigo_componets/pages/input_page.dart';
 import 'package:codigo_componets/pages/listView_page.dart';
 import 'package:flutter/material.dart';
@@ -128,6 +129,15 @@ class HomePage extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => ListViewPage()));
+                  },
+                ),
+                ItemsMenuWidget(
+                  title: "Grip View",
+                  description: "Detalle de los Grip",
+                  icon: Icons.input,
+                  ontap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => GridPage()));
                   },
                 ),
               ],
