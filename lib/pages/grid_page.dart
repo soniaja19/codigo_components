@@ -192,25 +192,31 @@ class GridPage extends StatelessWidget {
         crossAxisSpacing: 15,
         mainAxisSpacing: 15,
         childAspectRatio: 0.8,
-        //
-        children: [
-          ...List.generate(
-            superheroes.length,
-            (index) => ItemSuperHeroe(
-              dataSuperheroe: superheroes[index],
-            ),
-          ),
-          const Text("Hola"),
-        ],
+        //Opcion 1
+        // children: [
+        //   ...List.generate(
+        //     superheroes.length,
+        //     (index) => ItemSuperHeroe(
+        //       dataSuperheroe: superheroes[index],
+        //     ),
+        //   ),
+        //   const Text("Hola"),
+        // ],
 
         //Opción 2 lista de widgets con su colección
         // children:
         //     List.generate(superheroes.length, (index) => ItemSuperHeroe()),
 
-        //Opción 2 lista de widgets con su colección
-        //children: superheroes.map((mandarina) => ItemSuperHeroe()).toList(),
+        //Opción 3 lista de widgets con su colección
+        children: superheroes
+            .map(
+              (mandarina) => ItemSuperHeroe(
+                dataSuperheroe: mandarina,
+              ),
+            )
+            .toList(),
 
-        //Opción 3
+        //Opción 4 para agregar componentes con los punto
         // children: [
         //   ...superheroes.map((mandarina) => ItemSuperHeroe()).toList(),
         // ],
